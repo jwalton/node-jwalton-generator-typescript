@@ -164,6 +164,15 @@ module.exports = class extends Generator {
     }
 
     end() {
+        this.spawnCommandSync('git', ['init', '--quiet'], {
+            cwd: this.destinationPath()
+        });
+
+        const repoSSH = `git@github.com:${this.props.githubProject}.git`;
+        this.spawnCommandSync('git', ['remote', 'add', 'origin', repoSSH], {
+            cwd: this.destinationPath()
+        });
+
         this.log('');
         this.log('All done!  Check README.md for a list of things to do to finish up.');
         this.log('');
