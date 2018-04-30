@@ -30,8 +30,8 @@ const TEMPLATES = [
     'test/test.ts',
     'test/tsconfig.json',
     'test/tslint.json',
-    '.gitattributes',
-    '.gitignore',
+    {from: 'gitattributes', to: '.gitattributes'},
+    {from: 'gitignore', to: '.gitignore'},
     '.markdownlint.json',
     '.nycrc',
     '.travis.yml',
@@ -146,8 +146,8 @@ module.exports = class extends Generator {
     writing() {
         for(const template of TEMPLATES) {
             this.fs.copyTpl(
-                this.templatePath(template),
-                this.destinationPath(template),
+                this.templatePath(template.from || template),
+                this.destinationPath(template.to || template),
                 this.props
             );
         }
