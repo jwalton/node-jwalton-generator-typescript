@@ -16,7 +16,6 @@ const PACKAGES = [
     'markdownlint-cli',
     'mocha',
     'nyc',
-    'husky',
     'ts-node',
     'tslint',
     'typescript',
