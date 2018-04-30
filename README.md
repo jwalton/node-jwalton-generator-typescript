@@ -5,17 +5,17 @@
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and node-jwalton-generator-typescript using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [Yeoman](http://yeoman.io) and @jwalton/generator-typescript using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
 ```bash
 npm install -g yo
-npm install -g node-jwalton-generator-typescript
+npm install -g @jwalton/generator-typescript
 ```
 
 Then generate your new project:
 
 ```bash
-yo jwalton-typescript
+yo @jwalton/typescript
 ```
 
 ## Getting To Know Yeoman
