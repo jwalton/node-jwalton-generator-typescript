@@ -43,8 +43,7 @@
   },
   "homepage": "https://github.com/<%= githubProject %>#readme",
   "devDependencies": {
-    "@types/node": "^<%= minNodeVersion %>.0.0",
-    "husky": "^1.0.0-rc.2"
+    "@types/node": "^<%= minNodeVersion %>.0.0"
   },
   "husky": {
     "hooks": {

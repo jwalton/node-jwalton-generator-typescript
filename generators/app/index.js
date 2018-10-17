@@ -20,7 +20,8 @@ const PACKAGES = [
     'tslint',
     'typescript',
     'semantic-release',
-    'validate-commit-msg'
+    'validate-commit-msg',
+    'husky'
 ];
 
 const TEMPLATES = [
@@ -154,7 +155,7 @@ module.exports = class extends Generator {
     }
 
     install() {
-        this.npmInstall(PACKAGES, { dev: true });
+        this.npmInstall(PACKAGES, { 'save-dev': true });
         this.installDependencies({
             npm: true,
             yarn: false,
