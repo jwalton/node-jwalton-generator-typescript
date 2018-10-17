@@ -1,6 +1,6 @@
 {
   "name": "@jwalton/generator-typescript",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Generates a typescript project",
   "homepage": "https://github.com/jwalton/node-jwalton-generator-typescript",
   "author": {
