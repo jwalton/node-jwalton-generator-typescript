@@ -17,11 +17,7 @@
     "eslint": "^4.19.1",
     "eslint-config-benbria": "^3.0.2",
     "eslint-plugin-import": "^2.11.0",
-    "eslint-plugin-promise": "^3.7.0",
-    "husky": "^0.14.3",
-    "nsp": "^2.8.0",
-    "yeoman-assert": "^3.1.0",
-    "yeoman-test": "^1.7.0"
+    "eslint-plugin-promise": "^3.7.0"
   },
   "engines": {
     "npm": ">= 4.0.0"
@@ -31,14 +27,10 @@
     "inquirer-npm-name": "^3.0.0",
     "lodash": "^4.17.10",
     "mkdirp": "^0.5.1",
-    "yeoman-generator": "^2.0.1",
+    "yeoman-generator": "^3.1.1",
     "yosay": "^2.0.1"
   },
-  "jest": {
-    "testEnvironment": "node"
-  },
   "scripts": {
-    "prepublishOnly": "nsp check",
     "test": "eslint ."
   },
   "repository": "jwalton/node-jwalton-generator-typescript",
