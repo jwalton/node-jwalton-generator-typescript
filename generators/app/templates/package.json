@@ -47,7 +47,6 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "validate-commit-msg",
       "pre-commit": "pretty-quick --staged && npm run test:pre-commit"
     }
   }

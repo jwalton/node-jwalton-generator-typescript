@@ -22,7 +22,6 @@ const DEV_PACKAGES = [
     'tslint',
     'typescript',
     'semantic-release',
-    'validate-commit-msg',
     'husky'
 ];
 
