@@ -21,9 +21,10 @@
         "only-arrow-functions": false,
         "ordered-imports": false,
         "quotemark": [false, "single", "avoid-escape"],
+        "semicolon": [true, "always", "ignore-bound-class-methods"],
         "trailing-comma": false,
         "typedef-whitespace": false,
-        "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore"],
+        "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore", "allow-pascal-case"],
         "whitespace": false
     },
     "rulesDirectory": []

@@ -6,7 +6,7 @@ const chalk = require('chalk');
 const askNpmName = require('inquirer-npm-name');
 const mkdirp = require('mkdirp');
 
-const PACKAGES = [
+const DEV_PACKAGES = [
     '@types/chai',
     '@types/mocha',
     'chai',
@@ -41,7 +41,6 @@ const TEMPLATES = [
     'README.md',
     'tsconfig.json',
     'tslint.json'
-
 ];
 
 function makeNpmName(name) {
@@ -111,6 +110,12 @@ module.exports = class extends Generator {
                     return true;
                 },
                 store: true
+            },
+            {
+                type: 'boolean',
+                name: 'react',
+                message: 'Use React?',
+                default: false
             }
         ]));
 
@@ -123,7 +128,7 @@ module.exports = class extends Generator {
             this.props.typescriptLib = '["es2016", "es2017.TypedArrays"]';
         } else {
             this.props.typescriptTarget = 'es2018';
-            this.props.typescriptLib = '["es2016", "es2017", "es2018"]';
+            this.props.typescriptLib = '["es2018"]';
         }
 
         this.props.githubProject = `${this.props.githubUser}/${this.props.githubProjectName}`;
@@ -155,7 +160,17 @@ module.exports = class extends Generator {
     }
 
     install() {
-        this.npmInstall(PACKAGES, { 'save-dev': true });
+        const devPackages = Object.assign({}, DEV_PACKAGES);
+        if(this.props.react) {
+            devPackages.push('@types/react');
+            devPackages.push('@types/react-dom');
+        }
+
+
+        this.npmInstall(devPackages, { 'save-dev': true });
+        if(this.props.react) {
+            this.npmInstall(['react', 'react-dom']);
+        }
         this.installDependencies({
             npm: true,
             yarn: false,
