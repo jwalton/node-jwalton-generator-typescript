@@ -12,37 +12,36 @@ const DEV_PACKAGES = [
     'chai',
     'chai-as-promised',
     'coveralls',
-    'markdownlint',
-    'markdownlint-cli',
     'mocha',
     'nyc',
     'prettier',
     'pretty-quick',
     'ts-node',
-    'tslint',
     'typescript',
     'semantic-release',
-    'husky'
+    'husky',
+    'eslint',
+    'eslint-config-prettier',
+    '@typescript-eslint/eslint-plugin',
+    '@typescript-eslint/parser'
 ];
 
 const TEMPLATES = [
     '@types/README',
     'src/index.ts',
-    'test/mocha.opts',
     'test/test.ts',
     'test/tsconfig.json',
-    'test/tslint.json',
     {from: 'gitattributes', to: '.gitattributes'},
     {from: 'gitignore', to: '.gitignore'},
-    '.markdownlint.json',
+    {from: 'eslintrc.js', to: '.eslintrc.js'},
     '.nycrc',
     '.travis.yml',
     '.prettierrc.js',
+    '.mocharc.js',
+    'tsconfig.json',
     'CONTRIBUTING.md',
     'package.json',
-    'README.md',
-    'tsconfig.json',
-    'tslint.json'
+    'README.md'
 ];
 
 function makeNpmName(name) {
@@ -162,7 +161,7 @@ module.exports = class extends Generator {
     }
 
     install() {
-        const devPackages = Object.assign({}, DEV_PACKAGES);
+        const devPackages = DEV_PACKAGES.slice();
         if(this.props.react) {
             devPackages.push('@types/react');
             devPackages.push('@types/react-dom');

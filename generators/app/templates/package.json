@@ -3,10 +3,9 @@
   "version": "0.0.0-semantic-release",
   "description": "<%= projectDescription %>",
   "main": "dist/index.js",
-  "types": "types/index.d.ts",
+  "types": "dist/index.d.ts",
   "files": [
-    "dist/**/*",
-    "types/**/*"
+    "dist/**/*"
   ],
   "scripts": {
     "test": "npm run build && npm run lint && npm run test:unittest",
@@ -15,10 +14,9 @@
     "clean": "rm -rf dist types coverage",
     "test:unittest": "tsc -p test && nyc mocha 'test/**/*.@(ts|tsx|js|jsx)'",
     "precommit:unittest": "tsc -p test && mocha --reporter progress 'test/**/*.@(ts|tsx|js|jsx)'",
-    "lint": "npm run lint:source && npm run lint:markdown && npm run lint:tests",
-    "lint:source": "tslint -c tslint.json -t stylish 'src/**/*.@(ts|tsx)'",
-    "lint:tests": "tslint -c test/tslint.json -t stylish 'test/**/*.@(ts|tsx)'",
-    "lint:markdown": "markdownlint **/*.md *.md",
+    "lint": "npm run lint:source && npm run lint:tests",
+    "lint:source": "eslint --ext .ts --ext .tsx src",
+    "lint:tests": "eslint --ext .ts --ext .tsx test",
     "prepare": "npm run build",
     "prepublishOnly": "npm run build && npm test",
     "semantic-release": "semantic-release"
