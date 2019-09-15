@@ -22,8 +22,8 @@
     "semantic-release": "semantic-release"
   },
   "lint-staged": {
-    "src/**/*.ts": ["tslint -c tslint.json -t stylish"],
-    "test/**/*.ts": ["tslint -c test/tslint.json -t stylish"]
+    "src/**/*.ts": ["eslint --ext ts --ext tsx"],
+    "test/**/*.ts": ["eslint --ext ts --ext tsx"]
   },
   "repository": {
     "type": "git",
