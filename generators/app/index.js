@@ -22,6 +22,7 @@ const DEV_PACKAGES = [
     'husky',
     'eslint',
     'eslint-config-prettier',
+    'lint-staged',
     '@typescript-eslint/eslint-plugin',
     '@typescript-eslint/parser'
 ];
