@@ -1,9 +1,10 @@
 module.exports = {
     parser: '@typescript-eslint/parser',
     parserOptions: {
-        project: './tsconfig.json',
+        project: ['./tsconfig.json', './test/tsconfig.json'],
     },
     extends: [
+        'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
         'prettier',
         'prettier/@typescript-eslint',
@@ -17,6 +18,9 @@ module.exports = {
         '@typescript-eslint/no-unused-vars': 'off',
     },
     overrides: [
+        {
+            files: ['src/**/*.ts', 'src/**/*.tsx'],
+        },
         {
             files: ['test/**/*.ts', 'test/**/*.tsx'],
             rules: {
