@@ -5,29 +5,33 @@ const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const askNpmName = require('inquirer-npm-name');
 const mkdirp = require('mkdirp');
+const _ = require('lodash');
 
-const DEV_PACKAGES = [
-    '@types/chai',
-    '@types/mocha',
-    '@types/node',
-    'chai',
-    'chai-as-promised',
-    'coveralls',
-    'eslint-plugin-import',
-    'mocha',
-    'nyc',
-    'prettier',
-    'pretty-quick',
-    'ts-node',
-    'typescript',
-    'semantic-release',
-    'husky',
-    'eslint',
-    'eslint-config-prettier',
-    'lint-staged',
-    '@typescript-eslint/eslint-plugin',
-    '@typescript-eslint/parser',
-];
+const DEV_PACKAGES = {
+    '@types/chai': '^4.2.21',
+    '@types/mocha': '^9.0.0',
+    '@types/node': '^16.4.13',
+    '@typescript-eslint/eslint-plugin': '^4.29.1',
+    '@typescript-eslint/parser': '^4.29.1',
+    chai: '^4.3.4',
+    'chai-as-promised': '^7.1.1',
+    'chai-jest': '^1.0.2',
+    eslint: '^7.32.0',
+    'eslint-config-prettier': '^8.3.0',
+    'eslint-plugin-import': '^2.24.0',
+    husky: '^7.0.1',
+    jest: '^27.0.6',
+    'lint-staged': '^11.1.2',
+    prettier: '^2.3.2',
+    'pretty-quick': '^3.1.1',
+    react: '^17.0.2',
+    'semantic-release': '^17.4.4',
+    'ts-jest': '^27.0.4',
+    'ts-node': '^10.2.0',
+    typescript: '^4.3.5',
+    mocha: '^9.0.3',
+    nyc: '^15.1.0',
+};
 
 const TEMPLATES = [
     '@types/README',
@@ -175,6 +179,19 @@ module.exports = class extends Generator {
     }
 
     writing() {
+        this.addDevDependencies(DEV_PACKAGES);
+
+        if (this.props.react) {
+            this.addDevDependencies({
+                '@types/react': '^17.0.0',
+                '@types/react-dom': '^17.0.0',
+            });
+            this.addDependencies({
+                react: '^17.0.0',
+                'react-dom': '^17.0.0',
+            });
+        }
+
         for (const template of TEMPLATES) {
             this.fs.copyTpl(
                 this.templatePath(template.from || template),
@@ -182,24 +199,6 @@ module.exports = class extends Generator {
                 this.props
             );
         }
-    }
-
-    install() {
-        const devPackages = DEV_PACKAGES.slice();
-        if (this.props.react) {
-            devPackages.push('@types/react');
-            devPackages.push('@types/react-dom');
-        }
-
-        this.npmInstall(devPackages, { 'save-dev': true });
-        if (this.props.react) {
-            this.npmInstall(['react', 'react-dom']);
-        }
-        this.installDependencies({
-            npm: true,
-            yarn: false,
-            bower: false,
-        });
     }
 
     end() {
@@ -217,3 +216,5 @@ module.exports = class extends Generator {
         this.log('');
     }
 };
+
+_.extend(Generator.prototype, require('yeoman-generator/lib/actions/install'));
