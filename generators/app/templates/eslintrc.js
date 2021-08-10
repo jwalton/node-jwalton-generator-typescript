@@ -7,7 +7,7 @@ module.exports = {
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
         'prettier',
-        'prettier/@typescript-eslint',
+        'plugin:import/recommended',
     ],
     rules: {
         '@typescript-eslint/explicit-function-return-type': 'off',
@@ -16,6 +16,9 @@ module.exports = {
         '@typescript-eslint/no-use-before-define': 'off',
         // typescript compiler has better unused variable checking.
         '@typescript-eslint/no-unused-vars': 'off',
+        'import/no-unresolved': 'off',
+        'import/named': 'off',
+        'import/extensions': ['error', 'ignorePackages'],
     },
     overrides: [
         {

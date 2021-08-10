@@ -12,6 +12,7 @@ const DEV_PACKAGES = [
     'chai',
     'chai-as-promised',
     'coveralls',
+    'eslint-plugin-import',
     'mocha',
     'nyc',
     'prettier',
@@ -29,20 +30,25 @@ const DEV_PACKAGES = [
 
 const TEMPLATES = [
     '@types/README',
+    'bin/build-types.sh',
     'src/index.ts',
     'test/test.ts',
     'test/tsconfig.json',
+    'test/.eslintrc.js',
     {from: 'gitattributes', to: '.gitattributes'},
     {from: 'gitignore', to: '.gitignore'},
     {from: 'eslintrc.js', to: '.eslintrc.js'},
     '.nycrc',
-    '.travis.yml',
     '.prettierrc.js',
     '.mocharc.js',
+    'tsconfig.cjs.json',
     'tsconfig.json',
     'CONTRIBUTING.md',
     'package.json',
-    'README.md'
+    'README.md',
+    '.husky/pre-commit',
+    '.github/workflows/github-ci.yaml',
+    '.github/dependabot.yml'
 ];
 
 function makeNpmName(name) {

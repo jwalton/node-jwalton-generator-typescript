@@ -14,10 +14,10 @@
   "main": "generators/index.js",
   "keywords": [],
   "devDependencies": {
-    "eslint": "^4.19.1",
+    "eslint": "^7.32.0",
     "eslint-config-benbria": "^3.0.2",
     "eslint-plugin-import": "^2.11.0",
-    "eslint-plugin-promise": "^3.7.0"
+    "eslint-plugin-promise": "^5.1.0"
   },
   "engines": {
     "npm": ">= 4.0.0"
