@@ -9,6 +9,7 @@ const mkdirp = require('mkdirp');
 const DEV_PACKAGES = [
     '@types/chai',
     '@types/mocha',
+    '@types/node',
     'chai',
     'chai-as-promised',
     'coveralls',
@@ -124,11 +125,11 @@ module.exports = class extends Generator {
                     type: 'input',
                     name: 'minNodeVersion',
                     message: 'Minimum version of node to support',
-                    default: '6',
+                    default: '12',
                     validate(str) {
                         const minNodeVersion = parseInt(str, 10);
                         if (isNaN(minNodeVersion)) {
-                            return 'Value must be an integer (e.g. 6, 8, 10).';
+                            return 'Value must be an integer (e.g. 12, 14, 16).';
                         }
                         return true;
                     },

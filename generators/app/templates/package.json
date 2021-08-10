@@ -45,8 +45,5 @@
   "bugs": {
     "url": "https://github.com/exegesis-js/<%= githubProject %>/issues"
   },
-  "homepage": "https://github.com/<%= githubProject %>#readme",
-  "devDependencies": {
-    "@types/node": "^<%= minNodeVersion %>.0.0"
-  }
+  "homepage": "https://github.com/<%= githubProject %>#readme"
 }
