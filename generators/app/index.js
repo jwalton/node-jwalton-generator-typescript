@@ -2,6 +2,7 @@
 const path = require('path');
 const ld = require('lodash');
 const Generator = require('yeoman-generator');
+ld.extend(Generator.prototype, require('yeoman-generator/lib/actions/install'));
 const chalk = require('chalk');
 const askNpmName = require('inquirer-npm-name');
 const mkdirp = require('mkdirp');
